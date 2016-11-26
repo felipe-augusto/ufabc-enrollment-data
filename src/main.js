@@ -2,9 +2,14 @@ import Vue from 'vue'
 import App from './App'
 import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
+import MuseUI from 'muse-ui'
+import 'muse-ui/dist/muse-ui.css'
+import 'muse-ui/dist/theme-carbon.css'
+import Chart from 'chart.js'
 
 Vue.use(VueRouter)
 Vue.use(VueResource)
+Vue.use(MuseUI)
 
 // Lazy Loading para carregar um componente só quando visitamos sua rota
 const MateriasAlunos = resolve => {
@@ -20,7 +25,6 @@ const router = new VueRouter({
   ]
 })
 
-/* eslint-disable no-new */
 new Vue({
   router,
   el: '#app',

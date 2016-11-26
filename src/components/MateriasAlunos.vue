@@ -1,7 +1,7 @@
 <template>
   <div>
     <div v-if="loading">
-      Loading...
+      Desenhando o gráfico :)
     </div>
 
     <div v-if="error">
@@ -9,12 +9,16 @@
     </div>
 
     <div v-if="response">
-      <p>{{ response.body }}</p>
+      <!--<p>{{ response.body }}</p>-->
+      <mu-paper class="chart-paper" :zDepth="3">
+      <materias-alunos-chart :response-data=response.body></materias-alunos-chart>
+      </mu-paper>
     </div>
   </div>
 </template>
 
 <script>
+  import './materiasAlunosChart.js'
   export default {
     name: 'materias-alunos',
     data() {
@@ -37,7 +41,7 @@
       fetchData() {
         this.error = this.response = null
         this.loading = true
-        console.log(this.$root.host)
+        // console.log(this.$root.host)
         this.$http.get(`${this.$root.host}${this.$route.path}`).then(res => {
           this.loading = false
           this.response = res
@@ -51,3 +55,9 @@
     }
   }
 </script>
+
+<style>
+.chart-paper {
+  margin: 20px;
+}
+</style>
