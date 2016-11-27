@@ -12,7 +12,13 @@
           <mu-list-item title="Página Inicial" />
         </router-link>
         <router-link to="/materias_alunos">
-          <mu-list-item title="Matérias por aluno" />
+          <mu-list-item title="Matérias por Aluno" />
+        </router-link>
+        <router-link to="/chutes_inevitaveis">
+          <mu-list-item title="Chutes por Turno" />
+        </router-link>
+        <router-link to="/demanda_geral">
+          <mu-list-item title="Demanda Geral e por Turno" />
         </router-link>
         <mu-list-item v-if="docked" @click.native="open = false" title="Close" />
       </mu-list>

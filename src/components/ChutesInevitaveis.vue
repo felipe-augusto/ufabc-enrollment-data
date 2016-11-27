@@ -9,8 +9,9 @@
     </div>
 
     <div v-if="response">
+      <!--<p>{{ response.body }}</p>-->
       <mu-paper class="chart-paper" :zDepth="3">
-      <bar-chart :response-data=response.body label="Matérias por Aluno"></bar-chart>
+      <bar-chart :response-data=response.body label="Chutes por Turno"></bar-chart>
       </mu-paper>
     </div>
   </div>
@@ -20,7 +21,7 @@
   import './barChart.js'
   import routeDataFetching from '../mixins/routeDataFetching'
   export default {
-    name: 'materias-alunos',
+    name: 'chutes-inevitaveis',
     mixins: [routeDataFetching]
   }
 </script>

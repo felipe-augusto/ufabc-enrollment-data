@@ -6,6 +6,7 @@ import MuseUI from 'muse-ui'
 import 'muse-ui/dist/muse-ui.css'
 import 'muse-ui/dist/theme-carbon.css'
 import Chart from 'chart.js'
+import _ from 'lodash'
 
 Vue.use(VueRouter)
 Vue.use(VueResource)
@@ -19,9 +20,23 @@ const MateriasAlunos = resolve => {
   })
 }
 
+const ChutesInevitaveis = resolve => {
+  require.ensure(['./components/ChutesInevitaveis.vue'], () => {
+    resolve(require('./components/ChutesInevitaveis.vue'))
+  })
+}
+
+const DemandaGeral = resolve => {
+  require.ensure(['./components/DemandaGeral.vue'], () => {
+    resolve(require('./components/DemandaGeral.vue'))
+  })
+}
+
 const router = new VueRouter({
   routes: [
-    { path: '/materias_alunos', component: MateriasAlunos }
+    { path: '/materias_alunos', component: MateriasAlunos },
+    { path: '/chutes_inevitaveis', component: ChutesInevitaveis },
+    { path: '/demanda_geral', component: DemandaGeral }
   ]
 })
 

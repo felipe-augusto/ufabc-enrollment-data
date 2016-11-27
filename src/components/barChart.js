@@ -1,11 +1,14 @@
 import Vue from 'vue'
-import MateriasAlunos from './MateriasAlunos.vue'
 
-Vue.component('materias-alunos-chart', {
+Vue.component('bar-chart', {
   props: {
+    label: {
+      type: String,
+      default: ''
+    },
     responseData: {
       type: Object,
-      default () {
+      default() {
         return {}
       }
     }
@@ -22,14 +25,19 @@ Vue.component('materias-alunos-chart', {
     const ctx = this.$refs.chart
     const labels = Object.keys(this.responseData)
     const data = Object.values(this.responseData)
+    const label = this.label
+    const backgroundColor = []
+    for (const datum of data) {
+      backgroundColor.push(this.generateRandomHexColor())
+    }
     const myChart = new Chart(ctx, {
       type: 'bar',
       data: {
         labels,
         datasets: [{
-          label: 'Matérias por Aluno',
+          label,
           data,
-          borderWidth: 2
+          backgroundColor
         }]
       },
       options: {
@@ -42,11 +50,5 @@ Vue.component('materias-alunos-chart', {
         }
       }
     })
-  }
-})
-
-new Vue({
-  components: {
-    'materias-alunos-chart': MateriasAlunos
   }
 })
