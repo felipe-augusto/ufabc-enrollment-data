@@ -9,24 +9,34 @@
     </div>
 
     <div v-if="response">
-      <mu-paper class="chart-paper" :zDepth="3">
-        <bar-chart :response-data=response.body label="Matérias por Aluno"></bar-chart>
-      </mu-paper>
+      <info-cursos-table :response-data=response.body></info-cursos-table>
     </div>
   </div>
 </template>
 
 <script>
-  import './barChart.js'
+  import './infoCursosTable.js'
   import routeDataFetching from '../mixins/routeDataFetching'
   export default {
-    name: 'materias-alunos',
+    name: 'info-cursos',
     mixins: [routeDataFetching]
   }
 </script>
 
 <style>
-.chart-paper {
-  margin: 20px;
+table {
+  display: block;
+  max-height: 90vh;
+  width: 100%;
+  overflow: auto;
+}
+tr {
+  &:nth-child(2n) {
+    background-color: #eee;
+  }
+}
+th, td {
+  padding: 20px;
+  white-space: nowrap;
 }
 </style>

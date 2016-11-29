@@ -32,11 +32,18 @@ const DemandaGeral = resolve => {
   })
 }
 
+const InfoCursos = resolve => {
+  require.ensure(['./components/InfoCursos.vue'], () => {
+    resolve(require('./components/InfoCursos.vue'))
+  })
+}
+
 const router = new VueRouter({
   routes: [
     { path: '/materias_alunos', component: MateriasAlunos },
     { path: '/chutes_inevitaveis', component: ChutesInevitaveis },
-    { path: '/demanda_geral', component: DemandaGeral }
+    { path: '/demanda_geral', component: DemandaGeral },
+    { path: '/info_all_cursos', component: InfoCursos }
   ]
 })
 

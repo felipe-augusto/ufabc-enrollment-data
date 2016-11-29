@@ -15,7 +15,6 @@ Vue.component('bar-chart', {
   },
   template: '<canvas ref="chart" width="400" height="400"></canvas>',
   methods: {
-    // usar mais tarde para gerar cores aleatórias para os gráficos
     generateRandomHexColor() {
       // uma versão um pouco modificada de https://gist.github.com/addyosmani/fd3999ea7fce242756b1
       return `#${('00000' + (~~(Math.random() * (1 << 24))).toString(16)).slice(-6)}`
