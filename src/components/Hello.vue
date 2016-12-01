@@ -20,8 +20,14 @@
         <router-link to="/demanda_geral">
           <mu-list-item title="Demanda Geral e por Turno" />
         </router-link>
+        <!--<router-link to="/demanda_curso">
+          <mu-list-item title="Demanda por Curso" />
+        </router-link>-->
         <router-link to="/info_all_cursos">
           <mu-list-item title="Todos os Cursos" />
+        </router-link>
+        <router-link to="/previsao">
+          <mu-list-item title="Previsão" />
         </router-link>
         <mu-list-item v-if="docked" @click.native="open = false" title="Close" />
       </mu-list>

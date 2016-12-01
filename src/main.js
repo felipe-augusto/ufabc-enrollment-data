@@ -38,12 +38,26 @@ const InfoCursos = resolve => {
   })
 }
 
+// const DemandaCurso = resolve => {
+//   require.ensure(['./components/DemandaCurso.vue'], () => {
+//     resolve(require('./components/DemandaCurso.vue'))
+//   })
+// }
+
+const Previsao = resolve => {
+  require.ensure(['./components/Previsao.vue'], () => {
+    resolve(require('./components/Previsao.vue'))
+  })
+}
+
 const router = new VueRouter({
   routes: [
     { path: '/materias_alunos', component: MateriasAlunos },
     { path: '/chutes_inevitaveis', component: ChutesInevitaveis },
     { path: '/demanda_geral', component: DemandaGeral },
-    { path: '/info_all_cursos', component: InfoCursos }
+    { path: '/info_all_cursos', component: InfoCursos },
+    // { path: '/demanda_curso', component: DemandaCurso },
+    { path: '/previsao', component: Previsao }
   ]
 })
 
